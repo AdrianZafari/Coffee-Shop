@@ -1,5 +1,9 @@
 ﻿
 int totalCoffeeCost = 0;
+int smallCoffee = 0;
+int mediumCoffee = 0;
+int largeCoffee = 0;
+
 Start:
 Console.Clear();
 Console.WriteLine("Welcome to the Coffee Shop! Below you find our selections\n");
@@ -11,12 +15,15 @@ switch(userChoice)
 {
     case 1:
         totalCoffeeCost += 1;
+        smallCoffee += 1;
         break;
     case 2:
         totalCoffeeCost += 2;
+        mediumCoffee += 1;
         break;
     case 3:
         totalCoffeeCost += 3;
+        largeCoffee += 1;
         break;
     default:
         Console.WriteLine($"Your choice {userChoice} is invalid\n\nPress any key to continue...");
@@ -41,9 +48,24 @@ switch(userContinue)
         goto Decide;
         
 }
+Console.Clear () ;
+Console.WriteLine("Receipt\n\n");
 
+if (smallCoffee != 0)
+{
+    Console.WriteLine($"{smallCoffee}x    Small Coffee");
+}
+if (mediumCoffee != 0)
+{
+    Console.WriteLine($"{mediumCoffee}x    Medium Coffee");
+}
+if (largeCoffee != 0)
+{
+    Console.WriteLine($"{largeCoffee}x    Large Coffee");
+}
+
+Console.WriteLine($"\nYour total cost is: ${totalCoffeeCost}\n");
 Console.WriteLine("\nThank you for shopping with us");
-Console.WriteLine($"Your total cost is: ${totalCoffeeCost}");
-Console.WriteLine("\nPlease come again!");
+Console.WriteLine("Please come again!");
 
 Console.ReadKey();
